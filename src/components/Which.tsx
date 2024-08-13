@@ -7,63 +7,63 @@ const projects = [
     description: 'React JS + TypeScript + Node JS',
     website: 'https://www.teacherspayteachers.com/',
     source: '#',
-    image: './img/p (2).png', // Add your project image path
+    image: '/img/p (2).png', // Add your project image path
   },
   {
     name: 'Glamorvida Dropshipping',
     description: 'React JS + Tailwind CSS',
     website: 'https://glamorvida.com/',
     source: '#',
-    image: './img/p (8).png', // Add your project image path
+    image: '/img/p (8).png', // Add your project image path
   },
   {
     name: 'Fast Furnishings',
     description: 'Bootstrap + Vue.js + PayPal API',
     website: 'https://www.fastfurnishings.com/',
     source: '#',
-    image: './img/p (7).png', // Add your project image path
+    image: '/img/p (7).png', // Add your project image path
   },
   {
     name: 'Lifesum',
     description: 'React JS + Tailwind CSS + Amazon',
     website: 'https://lifesum.com/',
     source: '#',
-    image: './img/p (9).png', // Add your project image path
+    image: '/img/p (9).png', // Add your project image path
   },
   {
     name: 'Everlywell-Healthcare',
     description: 'React JS + Tailwind CSS + Amazon',
     website: 'https://empowerhealth.ai/',
     source: '#',
-    image: './img/p (5).png', // Add your project image path
+    image: '/img/p (5).png', // Add your project image path
   },
   {
     name: 'Reach your credit and money goals',
     description: 'AWS & AI ChatGPT',
     website: 'https://www.experian.com/',
     source: '#',
-    image: './img/p (6).png', // Add your project image path
+    image: '/img/p (6).png', // Add your project image path
   },
   {
     name: '$MONSTERs',
     description: 'NFT & Smart Contract & web3.js',
     website: 'https://chainmonsters.com/',
     source: '#',
-    image: './img/p (4).png', // Add your project image path
+    image: '/img/p (4).png', // Add your project image path
   },
   {
     name: 'Crypto Unicorns',
     description: 'React JS & Smart Contract & web3.js',
     website: 'https://www.cryptounicorns.fun/',
     source: '#',
-    image: './img/p (1).png', // Add your project image path
+    image: '/img/p (1).png', // Add your project image path
   },
   {
     name: 'Empower Health AI',
     description: 'Hubspot CMS & AI Chatbot',
     website: 'https://empowerhealth.ai/',
     source: '#',
-    image: './img/p (3).png', // Add your project image path
+    image: '/img/p (3).png', // Add your project image path
   },
   // Add more projects...
 ];
@@ -144,7 +144,7 @@ const Which: React.FC = () => {
           className={`text-xl font-bold  w-[130px] -mt-[30px] h-20 -mr-[10px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
-          <img src="img/ring-1_2.png" alt="logo" className="grow-shrink-1" />
+          <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />
         </div>
         <span onClick={() => handleAnimation(hichRef)} ref={hichRef} className={`z-10 transition-transform duration-1000 ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'}`}>
           hich
@@ -159,7 +159,7 @@ const Which: React.FC = () => {
       <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 my-built">
         {projects.map((project, index) => (
           <div key={project.name} className={`relative bg-gray-800 hover:bg-gray-700 transition duration-1000 my-box-shadow clickable hover-contain ${visibleItem > index? 'opacity-100' : 'opacity-0'}`}>
-            <img src={project.image} alt={project.name} className="w-full h-auto" />
+            <img src={process.env.PUBLIC_URL + project.image} alt={project.name} className="w-full h-auto" />
             <div className="absolute flex flex-col items-center justify-center bg-gray-900 opacity-100 transition duration-1000 hover-cover text-2xl">
               <p>{project.description}</p><br></br>
               <div className="flex space-x-2">

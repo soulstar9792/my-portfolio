@@ -78,7 +78,7 @@ const Who: React.FC = () => {
           className={`text-xl font-bold w-[130px] -mt-[30px] h-20 -mr-[10px] rounded-full cursor-pointer ${animationStarted ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
-          <img src="img/ring-1_2.png" alt="logo" className="grow-shrink-1" />
+          <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />
         </div>
         <span onClick={() => handleAnimation(hoRef)} ref={hoRef} className={`z-10 transition-transform duration-1000 ${animationStarted ? 'animate-slide-in-left' : 'invisible'}`}>
           ho
@@ -93,14 +93,14 @@ const Who: React.FC = () => {
       <div className='w-full grid xl:grid-cols-2 sm:grid-cols-1 gap-4'>
         <div className="p-8">
           {sentences.map((sentence, index) => (
-            <p key={index} className={`mt-4 text-2xl transition-opacity duration-1000` + ' c-h-' + index}>
+            <p key={index} className={`mt-4 text-2xl transition-opacity duration-1000` + ' c-h-' + String(index)}>
               &nbsp;{paragraphVisible && <TypingText text={sentence.text} delay={sentence.delay} />}
             </p>
           ))}
         </div>
         <div className={`w-full transition-transform duration-3000 my-box-shadow clickable ${paragraphVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
           <div className="w-full">
-            <img src="img/coding.gif" alt="logo" className='w-full' />
+            <img src={process.env.PUBLIC_URL + "/img/coding.gif"} alt="logo" className='w-full' />
           </div>
         </div>
 

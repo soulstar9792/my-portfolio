@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
                 className={`text-xl font-bold w-12 h-12 rounded-full cursor-pointer transition-all duration-300 ${isOpen ? 'mb-[65px]' : 'mb-0'}`}
                 onClick={handleImageClick}
             >
-                <img src="img/ring-1_2.png" alt="logo" className="grow-shrink-1" />
+                <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />
             </div>
             {/* Hidden by default, appears above the navbar */}
             <div 
@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
                     whiteSpace: 'nowrap', // Prevent wrapping for a cleaner look
                 }}
             >
-                {['Who', 'What', 'Which', 'Where', 'Whiz'].map((item) => (
+                {['Who', 'What', 'Which', 'Whiz', 'Where'].map((item) => (
                     <a
                         key={item}
                         href={`#${item.toLowerCase()}`}

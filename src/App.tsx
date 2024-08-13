@@ -1,16 +1,18 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Welcome from './components/Welcome';
-import Who from './components/Who';
-import What from './components/What';
-import Whiz from './components/Whiz';
-import Which from './components/Which';
-import Where from './components/Where';
-import StarryBackground from './components/StarryBackground';
+
+// Lazy loaded components
+const Navbar = React.lazy(() => import('./components/Navbar'));
+const Welcome = React.lazy(() => import('./components/Welcome'));
+const Who = React.lazy(() => import('./components/Who'));
+const What = React.lazy(() => import('./components/What'));
+const Whiz = React.lazy(() => import('./components/Whiz'));
+const Which = React.lazy(() => import('./components/Which'));
+const Where = React.lazy(() => import('./components/Where'));
+const StarryBackground = React.lazy(() => import('./components/StarryBackground'));
 
 const App: React.FC = () => {
   return (
-    <div style={{ userSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none'}}>
+    <div style={{ userSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none' }}>
       <StarryBackground />
       <div className="bg-transparent text-white font-sans">
         <Navbar />

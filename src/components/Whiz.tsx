@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';  // Importing useRef and useEffect
-import { FaJs, FaHtml5, FaReact } from 'react-icons/fa'; // You can install react-icons
 
 const skills = [
   { name: 'JavaScript', level: 5, class: 'devicon-javascript-plain colored'},
@@ -101,7 +100,7 @@ const Whiz: React.FC = () => {
           className={`text-xl font-bold w-[130px] -mt-[30px] h-20 -mr-[10px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
-          <img src="img/ring-1_2.png" alt="logo" className="grow-shrink-1" />
+          <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />
         </div>
         <span onClick={() => handleAnimation(hizRef)} ref={hizRef} className={`z-10 transition-transform duration-1000 ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'}`}>
           hiz

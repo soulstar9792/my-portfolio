@@ -3,7 +3,6 @@ import './styles.css';
 
 const What: React.FC = () => {
   const [titleAnimationStart, setTitleAnimationStart] = useState(false);
-  const [paragraphAnimationStart, setParagraphAnimationStart] = useState(false);
 
   // State to manage visibility of each text segment
   const [degreeVisible, setDegreeVisible] = useState(false);
@@ -27,7 +26,6 @@ const What: React.FC = () => {
 
         setTimeout(() => {
           setAnimateEnabled(true);
-          setParagraphAnimationStart(true);
           // Manage paragraph animations sequentially
           const delays = [250, 500, 750, 1000]; // Delays for each paragraph
           setDegreeVisible(true);
@@ -74,7 +72,8 @@ const What: React.FC = () => {
     }
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+        let current = sectionRef.current;
+        observer.unobserve(current);
       }
     };
   }, []);
@@ -86,7 +85,7 @@ const What: React.FC = () => {
           className={`text-xl font-bold w-[130px] -mt-[30px] h-20 -mr-[10px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
-          <img src="img/ring-1_2.png" alt="logo" className="grow-shrink-1" />
+          <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />
         </div>
         <span onClick={() => handleAnimation(hatRef)} ref={hatRef} className={`z-10 transition-transform duration-1000 ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'}`}>
           hat
@@ -101,7 +100,7 @@ const What: React.FC = () => {
       <div className='w-full grid xl:grid-cols-2 sm:grid-cols-1 gap-4 '>
         <div className="flex justify-center items-center">
           <div className={`w-full transition-transform duration-3000 my-box-shadow clickable ${degreeVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-            <img src="img/business.gif" alt="logo" className='w-full' />
+            <img src={process.env.PUBLIC_URL + "/img/business.gif"} alt="business" className='w-full' />
           </div>
         </div>
         <div className="p-8">

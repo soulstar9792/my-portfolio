@@ -99,7 +99,7 @@ const Welcome: React.FC = () => {
           >
             <div className="flex justify-center">
               <div className="bg-transparent w-80 h-80 rounded-full animate-pulse">
-                <img src="img/ring-1_1.png" alt="logo" />
+                <img src={process.env.PUBLIC_URL + "/img/ring-1_1.png"} alt="logo" />
               </div>
             </div>
           </span>
@@ -115,7 +115,7 @@ const Welcome: React.FC = () => {
             onClick={() => handleAnimation(toRef)}
             className={`transition-opacity duration-1000 ${growShrinkStarted ? "opacity-100" : "opacity-0"}`}
           >
-            to
+            &nbsp;to&nbsp;
           </span>
           <span
             ref={ssRef}
@@ -142,17 +142,17 @@ const Welcome: React.FC = () => {
         </h2>
       </div>
       <p className={`mt-4 text-2xl transition-opacity duration-1000 ${paragraphVisible ? "opacity-100" : "opacity-0"}`}>
-        {paragraphVisible && (
+        &nbsp;{paragraphVisible && (
           <TypingText text="Full-stack developer with expertise in JS frameworks, especially React." />
         )}
       </p>
       <p className={`mt-4 text-2xl transition-opacity duration-1000 opacity-100`}>
-        {showSecondTypingText && (
+      &nbsp;{showSecondTypingText && (
           <TypingText text="Passionate about creating efficient and scalable web applications." />
         )}
       </p>
       <p className={`mt-4 text-2xl transition-opacity duration-1000 opacity-100`}>
-        {showThirdTypingText && (
+      &nbsp;{showThirdTypingText && (
           <TypingText text="Always eager to learn new technologies and improve my skills." />
         )}
       </p>
