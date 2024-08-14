@@ -7,63 +7,63 @@ const projects = [
     description: 'React JS + TypeScript + Node JS',
     website: 'https://www.teacherspayteachers.com/',
     source: '#',
-    image: '/img/p (2).png', // Add your project image path
+    image: '/img/p2.jpg', // Add your project image path
   },
   {
     name: 'Glamorvida Dropshipping',
     description: 'React JS + Tailwind CSS',
     website: 'https://glamorvida.com/',
     source: '#',
-    image: '/img/p (8).png', // Add your project image path
+    image: '/img/p8.jpg', // Add your project image path
   },
   {
     name: 'Fast Furnishings',
     description: 'Bootstrap + Vue.js + PayPal API',
     website: 'https://www.fastfurnishings.com/',
     source: '#',
-    image: '/img/p (7).png', // Add your project image path
+    image: '/img/p7.jpg', // Add your project image path
   },
   {
     name: 'Lifesum',
     description: 'React JS + Tailwind CSS + Amazon',
     website: 'https://lifesum.com/',
     source: '#',
-    image: '/img/p (9).png', // Add your project image path
+    image: '/img/p9.jpg', // Add your project image path
   },
   {
     name: 'Everlywell-Healthcare',
     description: 'React JS + Tailwind CSS + Amazon',
     website: 'https://empowerhealth.ai/',
     source: '#',
-    image: '/img/p (5).png', // Add your project image path
+    image: '/img/p5.jpg', // Add your project image path
   },
   {
     name: 'Reach your credit and money goals',
     description: 'AWS & AI ChatGPT',
     website: 'https://www.experian.com/',
     source: '#',
-    image: '/img/p (6).png', // Add your project image path
+    image: '/img/p6.jpg', // Add your project image path
   },
   {
     name: '$MONSTERs',
     description: 'NFT & Smart Contract & web3.js',
     website: 'https://chainmonsters.com/',
     source: '#',
-    image: '/img/p (4).png', // Add your project image path
+    image: '/img/p4.jpg', // Add your project image path
   },
   {
     name: 'Crypto Unicorns',
     description: 'React JS & Smart Contract & web3.js',
     website: 'https://www.cryptounicorns.fun/',
     source: '#',
-    image: '/img/p (1).png', // Add your project image path
+    image: '/img/p1.jpg', // Add your project image path
   },
   {
     name: 'Empower Health AI',
     description: 'Hubspot CMS & AI Chatbot',
     website: 'https://empowerhealth.ai/',
     source: '#',
-    image: '/img/p (3).png', // Add your project image path
+    image: '/img/p3.jpg', // Add your project image path
   },
   // Add more projects...
 ];
@@ -132,7 +132,8 @@ const Which: React.FC = () => {
     }
     return () => {
       if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+        let current = sectionRef.current;
+        observer.unobserve(current);
       }
     };
   }, []);
@@ -141,7 +142,7 @@ const Which: React.FC = () => {
     <section ref={sectionRef} id="which" className="w-full py-20 min-h-screen">
       <h2 className="text-6xl text-center flex justify-center mb-20">
       <div
-          className={`text-xl font-bold  w-[130px] -mt-[30px] h-20 -mr-[10px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
+          className={`w-[100px] -mt-[20px] h-20 -mr-[10px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
           <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />

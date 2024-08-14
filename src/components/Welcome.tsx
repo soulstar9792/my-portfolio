@@ -92,7 +92,7 @@ const Welcome: React.FC = () => {
   return (
     <section id="welcome" className="flex w-full min-h-screen py-20 flex-col items-center justify-center">
       <div className="relative w-full flex flex-col flex-wrap items-center">
-        <h2 className="text-8xl font-bold relative flex align-center justify-center flex-wrap items-center">
+        <h2 className="xl:text-8xl sm:text-6xl font-bold relative flex align-center justify-center flex-wrap items-center">
           <span
             onClick={() => handleAnimation(elcomeRef)}
             className={`${animationStarted ? 'animate-bounce' : 'invisible'} ${growShrinkStarted ? 'grow-shrink-1' : ''}`}
@@ -141,7 +141,7 @@ const Welcome: React.FC = () => {
           </span>
         </h2>
       </div>
-      <p className={`mt-4 text-2xl transition-opacity duration-1000 ${paragraphVisible ? "opacity-100" : "opacity-0"}`}>
+      <p className={`mt-4 xl:text-2xl sm:text-xl transition-opacity duration-1000 ${paragraphVisible ? "opacity-100" : "opacity-0"}`}>
         &nbsp;{paragraphVisible && (
           <TypingText text="Full-stack developer with expertise in JS frameworks, especially React." />
         )}

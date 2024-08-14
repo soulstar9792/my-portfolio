@@ -72,10 +72,10 @@ const Who: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="who" className="py-20 min-h-screen">
+    <section ref={sectionRef} id="who" className="py-20 min-h-screen w-full">
       <h2 className="text-6xl text-center flex justify-center mb-20">
         <div
-          className={`text-xl font-bold w-[130px] -mt-[30px] h-20 -mr-[10px] rounded-full cursor-pointer ${animationStarted ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
+          className={`w-[100px] -mt-[20px] h-20 -mr-[10px] rounded-full cursor-pointer ${animationStarted ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
           <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />

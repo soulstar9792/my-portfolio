@@ -82,7 +82,7 @@ const What: React.FC = () => {
     <section ref={sectionRef} id="what" className="w-full py-20 min-h-screen ">
       <h2 className="text-6xl text-center flex justify-center mb-20">
       <div
-          className={`text-xl font-bold w-[130px] -mt-[30px] h-20 -mr-[10px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
+          className={`w-[100px] -mt-[20px] h-20 -mr-[10px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
           <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />
@@ -98,7 +98,7 @@ const What: React.FC = () => {
         </span>
       </h2>
       <div className='w-full grid xl:grid-cols-2 sm:grid-cols-1 gap-4 '>
-        <div className="flex justify-center items-center">
+        <div className="flex w-full justify-center items-center">
           <div className={`w-full transition-transform duration-3000 my-box-shadow clickable ${degreeVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
             <img src={process.env.PUBLIC_URL + "/img/business.gif"} alt="business" className='w-full' />
           </div>

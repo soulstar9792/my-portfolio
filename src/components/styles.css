@@ -269,10 +269,10 @@ h2 {
   left: 0;
   bottom: 0;
   height: 2px; /* Thickness of the underline */
-  background-color: rgb(253, 37, 37); /* Color of the underline */
+  background-color: rgb(245, 62, 62); /* Color of the underline */
   width: 100%;
   transform: scaleX(0); /* Initially scale it to 0 for animation */
-  transition: transform 0.3s ease; /* Animation effect */
+  transition: transform 0.7s ease; /* Animation effect */
   transform-origin: bottom right; /* Anchor the animation from the right */
 }
 
@@ -286,4 +286,25 @@ h2 {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-decoration-color: rgb(53, 50, 47);
+}
+.text-yellow-500 {
+  color: #ff6c00;
+}
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0a0a0a; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Round the corners of the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the scrollbar thumb on hover */
 }
