@@ -13,6 +13,7 @@ const Welcome: React.FC = () => {
   const elcomeRef = useRef<HTMLSpanElement>(null);
   const toRef = useRef<HTMLSpanElement>(null);
   const ssRef = useRef<HTMLSpanElement>(null);
+  const _sRef = useRef<HTMLSpanElement>(null);
   const portfolioRef = useRef<HTMLSpanElement>(null);
   const exclamationRef = useRef<HTMLSpanElement>(null);
   const [animateEnabled, setAnimateEnabled] = useState(false);
@@ -126,11 +127,17 @@ const Welcome: React.FC = () => {
             S.S
           </span>
           <span
+            ref={_sRef}
+            onClick={() => handleAnimation(_sRef)}
+            className={`transition-opacity duration-1000 ${growShrinkStarted ? "opacity-100" : "opacity-0"}`}
+          >'s&nbsp;
+          </span>
+          <span
             ref={portfolioRef}
             onClick={() => handleAnimation(portfolioRef)}
             className={`transition-opacity duration-1000 ${growShrinkStarted ? "opacity-100" : "opacity-0"}`}
           >
-            's Portfolio
+           Portfolio
           </span>
           <span
             ref={exclamationRef}
