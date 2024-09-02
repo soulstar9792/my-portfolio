@@ -41,6 +41,15 @@
     animation: slide-in 0.75s forwards; /* Fast movement for 'elcome' */
 }
 
+@keyframes fade-in {
+    0% { opacity: 0;}
+    100% { opacity: 100; }
+}
+
+.animate-fade-in {
+    animation: fade-in 2.75s forwards; /* Fast movement for 'elcome' */
+}
+
 @keyframes grow-shrink {
     0% { transform: scale(1); }
     50% { transform: scale(1.5); }

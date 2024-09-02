@@ -1,77 +1,22 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './styles.css';
 
-const projects = [
-  {
-    name: 'Teacher Pay Teachers',
-    description: 'React JS + TypeScript + Node JS',
-    website: 'https://www.teacherspayteachers.com/',
-    source: '#',
-    image: '/img/p2.jpg', // Add your project image path
-  },
-  {
-    name: 'Glamorvida Dropshipping',
-    description: 'React JS + Tailwind CSS',
-    website: 'https://glamorvida.com/',
-    source: '#',
-    image: '/img/p8.jpg', // Add your project image path
-  },
-  {
-    name: 'Fast Furnishings',
-    description: 'Bootstrap + Vue.js + PayPal API',
-    website: 'https://www.fastfurnishings.com/',
-    source: '#',
-    image: '/img/p7.jpg', // Add your project image path
-  },
-  {
-    name: 'Lifesum',
-    description: 'React JS + Tailwind CSS + Amazon',
-    website: 'https://lifesum.com/',
-    source: '#',
-    image: '/img/p9.jpg', // Add your project image path
-  },
-  {
-    name: 'Everlywell-Healthcare',
-    description: 'React JS + Tailwind CSS + Amazon',
-    website: 'https://empowerhealth.ai/',
-    source: '#',
-    image: '/img/p5.jpg', // Add your project image path
-  },
-  {
-    name: 'Reach your credit and money goals',
-    description: 'AWS & AI ChatGPT',
-    website: 'https://www.experian.com/',
-    source: '#',
-    image: '/img/p6.jpg', // Add your project image path
-  },
-  {
-    name: '$MONSTERs',
-    description: 'NFT & Smart Contract & web3.js',
-    website: 'https://chainmonsters.com/',
-    source: '#',
-    image: '/img/p4.jpg', // Add your project image path
-  },
-  {
-    name: 'Crypto Unicorns',
-    description: 'React JS & Smart Contract & web3.js',
-    website: 'https://www.cryptounicorns.fun/',
-    source: '#',
-    image: '/img/p1.jpg', // Add your project image path
-  },
-  {
-    name: 'Empower Health AI',
-    description: 'Hubspot CMS & AI Chatbot',
-    website: 'https://empowerhealth.ai/',
-    source: '#',
-    image: '/img/p3.jpg', // Add your project image path
-  },
-  // Add more projects...
-];
+interface Project {
+  name: string;
+  image: string;
+  description: string;
+  website?: string;
+  source?: string;
+}
+
+const projects: Project[] = require('../constants/projects.json');
+
+const ProjectsPerPage = 6; // Total items to be displayed per page (2 rows of 3 items each)
 
 const Which: React.FC = () => {
-
   const [titleAnimationStart, setTitleAnimationStart] = useState(false);
   const [visibleItem, setVisibleItem] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const sectionRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLDivElement>(null);
@@ -80,7 +25,6 @@ const Which: React.FC = () => {
   const builtRef = useRef<HTMLDivElement>(null);
   const [animateEnabled, setAnimateEnabled] = useState(false);
 
-  // Use an Intersection Observer to trigger animations on scroll
   const handleScroll = (entries: IntersectionObserverEntry[]) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -89,46 +33,18 @@ const Which: React.FC = () => {
 
         setTimeout(() => {
           setAnimateEnabled(true);
-        }, 500); // Initial delay before starting the paragraph animation
+        }, 500);
 
         let index = 0;
         const interval = setInterval(() => {
           if (index <= projects.length) {
             setVisibleItem(index++);
-        } else {
-            clearInterval(interval); // Clear interval when done
+          } else {
+            clearInterval(interval);
           }
         }, 500);
       }
     });
-  };
-
-  const handleAnimation = (ref: React.RefObject<HTMLSpanElement>) => {
-    if (animateEnabled && ref.current) {
-      
-      // Check if the animation class is already present
-      if (ref.current.classList.contains('animate-yesIm')) {
-        return; // If already animated, early return
-      }
-      
-      const classes = Array.from(ref.current.classList); // Convert DOMTokenList to an array
-
-      // Remove all animate classes
-      classes.forEach(cls => {
-        if (cls.startsWith('animate') && ref.current) {
-          ref.current.classList.remove(cls);
-        }
-      });
-
-      // Add the new animation class
-      ref.current.classList.add('animate-yesIm');
-
-      // Remove the animation class after it finishes to allow re-triggering
-      setTimeout(() => {
-        ref.current?.classList.remove('animate-yesIm');
-
-      }, 1000); // Duration of the animation
-    }
   };
 
   useEffect(() => {
@@ -144,10 +60,57 @@ const Which: React.FC = () => {
     };
   }, []);
 
+  const handleAnimation = (ref: React.RefObject<HTMLSpanElement>) => {
+    if (animateEnabled && ref.current) {
+      if (ref.current.classList.contains('animate-yesIm')) {
+        return;
+      }
+      
+      const classes = Array.from(ref.current.classList);
+      classes.forEach(cls => {
+        if (cls.startsWith('animate') && ref.current) {
+          ref.current.classList.remove(cls);
+        }
+      });
+      ref.current.classList.add('animate-yesIm');
+
+      setTimeout(() => {
+        ref.current?.classList.remove('animate-yesIm');
+      }, 1000);
+    }
+  };
+
+  // Calculate current projects to display based on current page
+  const startIndex = currentPage * ProjectsPerPage;
+  const currentProjects = projects.slice(startIndex, startIndex + ProjectsPerPage);
+
+  // Handle page change
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  // Render pagination buttons
+  const renderPaginationButtons = () => {
+    const totalPages = Math.ceil(projects.length / ProjectsPerPage);
+    return (
+      <div className="flex justify-center space-x-2 mt-4">
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handlePageChange(index)}
+            className={`w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-800 ${currentPage === index ? 'bg-gray-700 text-white' : 'bg-gray-900'} transition duration-300 ${visibleItem >= ProjectsPerPage ? 'animate-fade-in' : 'opacity-0'}`}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <section ref={sectionRef} id="which" className="w-full py-20 min-h-screen">
       <h2 className="text-4xl sm:text-6xl text-center flex justify-center items-center mb-20">
-      <div
+        <div
           className={`w-[66px] sm:w-[100px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
@@ -164,8 +127,8 @@ const Which: React.FC = () => {
         </span>
       </h2>
       <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 my-built px-5 xl:p-0 md:px-20 sm:px-10">
-        {projects.map((project, index) => (
-          <div key={project.name} className={`relative bg-gray-800 hover:bg-gray-700 transition duration-1000 my-box-shadow clickable hover-contain  ${visibleItem > index? 'opacity-100' : 'opacity-0'}`}>
+        {currentProjects.map((project, index) => (
+          <div key={project.name} className={`relative bg-gray-800 hover:bg-gray-700 transition duration-1000 my-box-shadow clickable hover-contain  ${visibleItem > index? 'opacity-100 animate-slide-in' : 'opacity-0'}`}>
             <img src={process.env.PUBLIC_URL + project.image} alt={project.name} className="w-full h-auto" />
             <div className="absolute flex flex-col items-center justify-center bg-gray-900 opacity-100 transition duration-1000 hover-cover text-2xl">
               <p>{project.description}</p><br></br>
@@ -177,6 +140,7 @@ const Which: React.FC = () => {
           </div>
         ))}
       </div>
+      {renderPaginationButtons()}
     </section>
   );
 };
