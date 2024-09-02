@@ -200,6 +200,7 @@ html {
   overflow: hidden;
   position: relative;
   transition-duration: 0.4s;
+  border-radius: 10px;
 }
 .skill-item:after {
   content: "";
@@ -224,7 +225,6 @@ html {
   margin-top: -5px;
   box-shadow: 3px 8px 7px 3px #76767e40;
   border: 2px solid green;
-  border-radius: 10px;
   box-sizing: border-box;
 }
 .transition-width {
