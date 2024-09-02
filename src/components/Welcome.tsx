@@ -148,19 +148,9 @@ const Welcome: React.FC = () => {
           </span>
         </h2>
       </div>
-      <p className={`mt-4 xl:text-2xl sm:text-xl transition-opacity duration-1000 ${paragraphVisible ? "opacity-100" : "opacity-0"}`}>
+      <p className={`mt-20 xl:text-4xl sm:text-2xl transition-opacity duration-1000 ${paragraphVisible ? "opacity-100" : "opacity-0"}`}>
         &nbsp;{paragraphVisible && (
           <TypingText text="Full-stack developer with expertise in JS frameworks, especially React." />
-        )}
-      </p>
-      <p className={`mt-4 text-2xl transition-opacity duration-1000 opacity-100`}>
-      &nbsp;{showSecondTypingText && (
-          <TypingText text="Passionate about creating efficient and scalable web applications." />
-        )}
-      </p>
-      <p className={`mt-4 text-2xl transition-opacity duration-1000 opacity-100`}>
-      &nbsp;{showThirdTypingText && (
-          <TypingText text="Always eager to learn new technologies and improve my skills." />
         )}
       </p>
     </section>
