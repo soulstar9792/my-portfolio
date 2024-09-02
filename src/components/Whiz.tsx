@@ -95,9 +95,9 @@ const Whiz: React.FC = () => {
   return (
     <section ref={sectionRef} id="whiz" className="w-full py-20">
       {/* Animated Header */}
-      <h2 className="text-6xl text-center flex justify-center mb-10">
+      <h2 className="text-4xl sm:text-6xl text-center flex justify-center items-center mb-20">
       <div
-          className={`w-[100px] -mt-[20px] h-20 -mr-[10px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
+          className={`w-[66px] sm:w-[100px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
           <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />
@@ -113,11 +113,11 @@ const Whiz: React.FC = () => {
         </span>
       </h2>
       {/* Skills Grid */}
-      <div className="grid 2xl:grid-cols-6 xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 gap-4">
+      <div className="grid 2xl:grid-cols-6 xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-3 gap-4 px-5 xl:p-0 md:px-20 sm:px-10">
         {skills.map((skill, index) => (
-          <div key={skill.name} className={`flex flex-col items-center text-3xl p-5 skill-item transition duration-1000 ${visibleItem > index? 'opacity-100' : 'opacity-0'}`}>
+          <div key={skill.name} className={`flex flex-col items-center text-md sm:text-2xl p-2 sm:p-5 skill-item transition duration-1000 ${visibleItem > index? 'opacity-100' : 'opacity-0'}`}>
             <div>{skill.name}</div>
-            <i className={`${skill.class} text-8xl`} />
+            <i className={`${skill.class} text-4xl sm:text-6xl`} />
             {/* You can add icons for other skills here */}
             <div>
               {Array.from({ length: 5 }, (_, index) => (

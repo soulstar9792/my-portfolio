@@ -248,6 +248,7 @@ html {
   transform: scale(1.055); /* Scale down slightly */
   box-shadow: 2px 2px 8px 5px rgb(100, 100, 100);  
   margin-top: -5px;
+  margin-bottom: 5px;
 }
 img {
   pointer-events: none; /* Prevents dragging and clicking */

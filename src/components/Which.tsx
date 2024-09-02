@@ -140,9 +140,9 @@ const Which: React.FC = () => {
 
   return (
     <section ref={sectionRef} id="which" className="w-full py-20 min-h-screen">
-      <h2 className="text-6xl text-center flex justify-center mb-20">
+      <h2 className="text-4xl sm:text-6xl text-center flex justify-center items-center mb-20">
       <div
-          className={`w-[100px] -mt-[20px] h-20 -mr-[10px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
+          className={`w-[66px] sm:w-[100px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
           <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />
@@ -157,9 +157,9 @@ const Which: React.FC = () => {
           Built
         </span>
       </h2>
-      <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 my-built">
+      <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 my-built px-5 xl:p-0 md:px-20 sm:px-10">
         {projects.map((project, index) => (
-          <div key={project.name} className={`relative bg-gray-800 hover:bg-gray-700 transition duration-1000 my-box-shadow clickable hover-contain ${visibleItem > index? 'opacity-100' : 'opacity-0'}`}>
+          <div key={project.name} className={`relative bg-gray-800 hover:bg-gray-700 transition duration-1000 my-box-shadow clickable hover-contain  ${visibleItem > index? 'opacity-100' : 'opacity-0'}`}>
             <img src={process.env.PUBLIC_URL + project.image} alt={project.name} className="w-full h-auto" />
             <div className="absolute flex flex-col items-center justify-center bg-gray-900 opacity-100 transition duration-1000 hover-cover text-2xl">
               <p>{project.description}</p><br></br>

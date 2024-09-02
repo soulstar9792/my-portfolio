@@ -91,15 +91,15 @@ const Welcome: React.FC = () => {
   };
 
   return (
-    <section id="welcome" className="flex w-full min-h-screen py-20 flex-col items-center justify-center">
+    <section id="welcome" className="flex w-full min-h-screen py-20 flex-col items-center justify-evenly">
       <div className="relative w-full flex flex-col flex-wrap items-center">
-        <h2 className="xl:text-8xl sm:text-6xl font-bold relative flex align-center justify-center flex-wrap items-center">
+        <h2 className="xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-4xl font-bold relative flex align-center justify-center flex-wrap items-center">
           <span
             onClick={() => handleAnimation(elcomeRef)}
             className={`${animationStarted ? 'animate-bounce' : 'invisible'} ${growShrinkStarted ? 'grow-shrink-1' : ''}`}
           >
             <div className="flex justify-center">
-              <div className="bg-transparent w-80 h-80 rounded-full animate-pulse">
+              <div className="bg-transparent xl:w-60 lg:w-40 md:w-32 sm:w-20 w-20  rounded-full animate-pulse">  
                 <img src={process.env.PUBLIC_URL + "/img/ring-1_1.png"} alt="logo" />
               </div>
             </div>
@@ -148,7 +148,7 @@ const Welcome: React.FC = () => {
           </span>
         </h2>
       </div>
-      <p className={`mt-20 xl:text-4xl sm:text-2xl transition-opacity duration-1000 ${paragraphVisible ? "opacity-100" : "opacity-0"}`}>
+      <p className={`xl:text-4xl sm:text-2xl transition-opacity text-center duration-1000 ${paragraphVisible ? "opacity-100" : "opacity-0"}`}>
         &nbsp;{paragraphVisible && (
           <TypingText text="Full-stack developer with expertise in JS frameworks, especially React." />
         )}

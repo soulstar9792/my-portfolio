@@ -73,13 +73,13 @@ const Who: React.FC = () => {
 
   return (
     <section ref={sectionRef} id="who" className="py-20 min-h-screen w-full">
-      <h2 className="text-6xl text-center flex justify-center mb-20">
-        <div
-          className={`w-[100px] -mt-[20px] h-20 -mr-[10px] rounded-full cursor-pointer ${animationStarted ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
+      <h2 className="text-4xl sm:text-6xl text-center flex justify-center items-center mb-20">
+        <span
+          className={`w-[66px] sm:w-[100px] rounded-full cursor-pointer ${animationStarted ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
           <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />
-        </div>
+        </span>
         <span onClick={() => handleAnimation(hoRef)} ref={hoRef} className={`z-10 transition-transform duration-1000 ${animationStarted ? 'animate-slide-in-left' : 'invisible'}`}>
           ho
         </span>
@@ -90,16 +90,16 @@ const Who: React.FC = () => {
           am
         </span>
       </h2>
-      <div className='w-full grid xl:grid-cols-2 sm:grid-cols-1 gap-4'>
-        <div className="p-8">
+      <div className='w-full grid xl:grid-cols-2 sm:grid-cols-1 gap-4 items-center'>
+        <div className="px-5 xl:p-0 md:px-20 sm:px-10">
           {sentences.map((sentence, index) => (
-            <p key={index} className={`mt-4 text-2xl transition-opacity duration-1000` + ' c-h-' + String(index)}>
+            <p key={index} className={`mt-4 md:text-2xl sm:text-xl transition-opacity duration-1000` + ' c-h-' + String(index)}>
               &nbsp;{paragraphVisible && <TypingText text={sentence.text} delay={sentence.delay} />}
             </p>
           ))}
         </div>
-        <div className={`w-full transition-transform duration-3000 my-box-shadow clickable ${paragraphVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
-          <div className="w-full">
+        <div className={`w-full px-5 xl:p-0 md:px-20 sm:px-10`} style={{ height: 'fit-content' }}> 
+          <div className={`w-full my-box-shadow  transition-transform duration-3000 clickable ${paragraphVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <img src={process.env.PUBLIC_URL + "/img/coding.gif"} alt="logo" className='w-full' />
           </div>
         </div>

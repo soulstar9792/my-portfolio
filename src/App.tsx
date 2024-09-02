@@ -16,7 +16,7 @@ const App: React.FC = () => {
       <StarryBackground />
       <div className="bg-transparent text-white font-sans">
         <Navbar />
-        <div className="flex flex-col items-center xl:px-40 sm:px-20">
+        <div className="flex flex-col items-center xxl:p-40 xl:p-20 lg:p-10 md:p-5 p-5 min-h-screen">
           <Welcome />
           <Who />
           <What />

@@ -80,13 +80,13 @@ const What: React.FC = () => {
 
   return (
     <section ref={sectionRef} id="what" className="w-full py-20 min-h-screen ">
-      <h2 className="text-6xl text-center flex justify-center mb-20">
-      <div
-          className={`w-[100px] -mt-[20px] h-20 -mr-[10px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
+      <h2 className="text-4xl sm:text-6xl text-center flex justify-center items-center mb-20">
+        <span
+          className={`w-[66px] sm:w-[100px] rounded-full cursor-pointer ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'} transition-all duration-300`}
           onClick={() => handleAnimation(imgRef)}  ref={imgRef}
         >
           <img src={process.env.PUBLIC_URL + "/img/ring-1_2.png"} alt="logo" className="grow-shrink-1" />
-        </div>
+        </span>
         <span onClick={() => handleAnimation(hatRef)} ref={hatRef} className={`z-10 transition-transform duration-1000 ${titleAnimationStart ? 'animate-slide-in-left' : 'invisible'}`}>
           hat
         </span>
@@ -97,30 +97,27 @@ const What: React.FC = () => {
           Earned
         </span>
       </h2>
-      <div className='w-full grid xl:grid-cols-2 sm:grid-cols-1 gap-4 '>
-        <div className="flex w-full justify-center items-center">
+      <div className='w-full grid xl:grid-cols-2 sm:grid-cols-1 gap-20 items-center'>
+        <div className="flex w-full justify-center items-center px-5 xl:p-0 md:px-20 sm:px-10">
           <div className={`w-full transition-transform duration-3000 my-box-shadow clickable ${degreeVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
             <img src={process.env.PUBLIC_URL + "/img/business.gif"} alt="business" className='w-full' />
           </div>
         </div>
-        <div className="p-8">
+        <div className="px-5 xl:p-0 md:px-20 sm:px-10">
           <div className={`p-5 transition-transform duration-1000 degree-item ${degreeVisible ? 'animate-rise' : 'opacity-0'}`}>
-            <h3 className='text-2xl mb-5'><span style={{ color: 'gold' }}>★</span>&nbsp;&nbsp;Bachelor of Science in Computer Science</h3>
-            <p className={`text-xl transition-opacity duration-1000 ${degreeVisible ? 'opacity-100' : 'opacity-0'}`}>The University of Hong Kong (2015-2019)</p>
-            <p className={`text-xl transition-opacity duration-1000 ${courseworkVisible ? 'opacity-100' : 'opacity-0'}`}>Coursework: Data Structures, Web Development, DB Management Systems</p>
-            <p className={`text-xl transition-opacity duration-1000 ${thesisVisible ? 'opacity-100' : 'opacity-0'}`}>Thesis: "Developing a Web-Based Platform for Real-Time Traffic Monitoring Using IoT Technologies."</p>
+            <h3 className='xl:text-md 2xl:text-2xl mb-5'><span style={{ color: 'gold' }}>★</span>&nbsp;&nbsp;Bachelor of Science in Computer Science</h3>
+            <p className={`xl:text-sm 2xl:text-md transition-opacity duration-1000 ${degreeVisible ? 'opacity-100' : 'opacity-0'}`}>The University of Hong Kong (2015-2019)</p>
+            <p className={`xl:text-sm 2xl:text-md transition-opacity duration-1000 ${thesisVisible ? 'opacity-100' : 'opacity-0'}`}>Thesis: "Developing a Web-Based Platform for Real-Time Traffic Monitoring Using IoT Technologies."</p>
           </div>
           <div className={`p-5 transition-transform duration-1000 degree-item ${universityVisible ? 'animate-rise' : 'opacity-0'}`}>
-            <h3 className='text-2xl mb-5'><span style={{ color: 'gold' }}>★</span>&nbsp;&nbsp;Master of Science in Software Engineering</h3>
-            <p className={`text-xl transition-opacity duration-1000 ${universityVisible ? 'opacity-100' : 'opacity-0'}`}>City University of Hong Kong (2019-2021)</p>
-            <p className={`text-xl transition-opacity duration-1000 ${courseworkVisible ? 'opacity-100' : 'opacity-0'}`}>Coursework: Software Engineering Fundamentals, Agile Development, Cloud Computing, Artificial Intelligence</p>
-            <p className={`text-xl transition-opacity duration-1000 ${thesisVisible ? 'opacity-100' : 'opacity-0'}`}>Thesis: "Design and Implementation of a Blockchain-Based Supply Chain Management System"</p>
+            <h3 className='xl:text-md 2xl:text-2xl mb-5'><span style={{ color: 'gold' }}>★</span>&nbsp;&nbsp;Master of Science in Software Engineering</h3>
+            <p className={`xl:text-sm 2xl:text-md transition-opacity duration-1000 ${universityVisible ? 'opacity-100' : 'opacity-0'}`}>City University of Hong Kong (2019-2021)</p>
+            <p className={`xl:text-sm 2xl:text-md transition-opacity duration-1000 ${thesisVisible ? 'opacity-100' : 'opacity-0'}`}>Thesis: "Design and Implementation of a Blockchain-Based Supply Chain Management System"</p>
           </div>
           <div className={`p-5 transition-transform duration-1000 degree-item ${thesisVisible ? 'animate-rise' : 'opacity-0'}`}>
-            <h3 className='text-2xl mb-5'><span style={{ color: 'gold' }}>★</span>&nbsp;&nbsp;Master of Science in Artificial Intelligence</h3>
-            <p className={`text-xl transition-opacity duration-1000 ${thesisVisible ? 'opacity-100' : 'opacity-0'}`}>University of Science and Technology of China (2021-2022)</p>
-            <p className={`text-xl transition-opacity duration-1000 ${courseworkVisible ? 'opacity-100' : 'opacity-0'}`}>Coursework: Natural Language Processing, Computer Vision, Ethics in AI</p>
-            <p className={`text-xl transition-opacity duration-1000 ${thesisVisible ? 'opacity-100' : 'opacity-0'}`}>Thesis: "Enhancing Natural Language Processing with Advanced Neural Architectures"</p>
+            <h3 className='xl:text-md 2xl:text-2xl mb-5'><span style={{ color: 'gold' }}>★</span>&nbsp;&nbsp;Master of Science in Artificial Intelligence</h3>
+            <p className={`xl:text-sm 2xl:text-md transition-opacity duration-1000 ${thesisVisible ? 'opacity-100' : 'opacity-0'}`}>University of Science and Technology of China (2021-2022)</p>
+            <p className={`xl:text-sm 2xl:text-md transition-opacity duration-1000 ${thesisVisible ? 'opacity-100' : 'opacity-0'}`}>Thesis: "Enhancing Natural Language Processing with Advanced Neural Architectures"</p>
           </div>
         </div>
       </div>
