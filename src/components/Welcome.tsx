@@ -70,6 +70,12 @@ const Welcome: React.FC = () => {
 
   const handleAnimation = (ref: React.RefObject<HTMLSpanElement>) => {
     if (animateEnabled && ref.current) {
+      
+      // Check if the animation class is already present
+      if (ref.current.classList.contains('animate-yesIm')) {
+        return; // If already animated, early return
+      }
+
       const classes = Array.from(ref.current.classList); // Convert DOMTokenList to an array
 
       // Remove all animate classes
