@@ -133,7 +133,7 @@ const Which: React.FC = () => {
             <div className="absolute flex flex-col items-center justify-center bg-gray-900 opacity-100 transition duration-1000 hover-cover text-2xl">
               <p>{project.description}</p><br></br>
               <div className="flex space-x-2">
-                {project.website && <a href={project.website} target='_blank' rel="noopener noreferrer" className="text-blue-400 hover:-mt-1 hover:underline">🌐</a>}
+                {project.website && <a href={project.website} target='_blank' rel="noopener noreferrer" className="text-blue-400 hover:-mt-1 hover:mb-1 hover:underline">🌐</a>}
                 {/* {project.source && <a href={project.source} target='_blank' rel="noopener noreferrer" className="text-green-400 hover:-mt-1 hover:underline">💻</a>} */}
               </div>
             </div>
